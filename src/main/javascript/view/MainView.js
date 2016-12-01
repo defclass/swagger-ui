@@ -120,7 +120,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
 
   addResource: function(resource, auths){
     // Render a resource and add it to resources li
-    resource.id = resource.id.replace(/\s/g, '_');
+    resource.id = resource.id.replace(/[[\]{}()*+?,\\/^$|#\s]/g, '_');    
     var resourceView = new SwaggerUi.Views.ResourceView({
       model: resource,
       router: this.router,
